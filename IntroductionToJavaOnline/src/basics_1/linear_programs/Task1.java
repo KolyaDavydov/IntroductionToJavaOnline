@@ -1,8 +1,6 @@
 package basics_1.linear_programs;
 
-/*
- 1.Найдите значение функции: z = ( (a – 3 ) * b / 2) + c.
-*/
+//1.РќР°Р№РґРёС‚Рµ Р·РЅР°С‡РµРЅРёРµ С„СѓРЅРєС†РёРё: z = ( (a вЂ“ 3 ) * b / 2) + c.
 
 public class Task1 {
 
@@ -11,7 +9,7 @@ public class Task1 {
 		double b = 4.0;
 		double c = 2.0;
 		double z = ((a - 3) * b / 2) + c;
-		System.out.println("Значение функции z = " + z);
+		System.out.println("Р—РЅР°С‡РµРЅРёРµ С„СѓРЅРєС†РёРё z = " + z);
 
 	}
 

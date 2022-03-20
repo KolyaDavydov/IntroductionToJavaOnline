@@ -3,8 +3,8 @@ package basics_1.linear_programs;
 import java.math.RoundingMode;
 import java.math.BigDecimal;
 
-//4.Дано действительное число R вида nnn.ddd (три цифровых разряда в дробной и целой частях). Поменять местами
-//дробную и целую части числа и вывести полученное значение числа.
+//4.Р”Р°РЅРѕ РґРµР№СЃС‚РІРёС‚РµР»СЊРЅРѕРµ С‡РёСЃР»Рѕ R РІРёРґР° nnn.ddd (С‚СЂРё С†РёС„СЂРѕРІС‹С… СЂР°Р·СЂСЏРґР° РІ РґСЂРѕР±РЅРѕР№ Рё С†РµР»РѕР№ С‡Р°СЃС‚СЏС…). РџРѕРјРµРЅСЏС‚СЊ РјРµСЃС‚Р°РјРё
+//РґСЂРѕР±РЅСѓСЋ Рё С†РµР»СѓСЋ С‡Р°СЃС‚Рё С‡РёСЃР»Р° Рё РІС‹РІРµСЃС‚Рё РїРѕР»СѓС‡РµРЅРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ С‡РёСЃР»Р°.
 
 public class Task4 {
 
@@ -16,7 +16,7 @@ public class Task4 {
 		BigDecimal bd = new BigDecimal(Double.toString(result));
 	    bd = bd.setScale(3, RoundingMode.HALF_UP);
 	    result = bd.doubleValue();
-		System.out.println("Число после смены цлой и десятичной части местаи: " + result);
+		System.out.println(result);
 		
 	}
 
