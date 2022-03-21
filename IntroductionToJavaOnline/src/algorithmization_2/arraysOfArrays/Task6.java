@@ -2,6 +2,8 @@ package algorithmization_2.arraysOfArrays;
 
 import java.util.Arrays;
 
+//6. Сформировать квадратную матрицу порядка n по заданному образцу(n - четное)
+
 public class Task6 {
 	
 	public static void main(String[] args) {
