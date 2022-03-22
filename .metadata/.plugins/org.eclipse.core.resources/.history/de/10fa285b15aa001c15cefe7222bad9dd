@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class Task8 {
 
 	public static void main(String[] args) {
-		int n = 6;
+		int n = 8;
 		int[][] matrix = new int[n][n];
 		for(int i = 0; i < n; i++) {
 			for(int j = 0; j < n; j++) {
@@ -26,12 +26,11 @@ public class Task8 {
 			
 			if(summ > sumMax) {
 				sumMax = summ;
-				numOfColumn = j + 1;
 			}
-			
+			numOfColumn = j;
 		}
 		
-		System.out.println("\nСтобец под номером " + numOfColumn + " имеет наибольшую сумму элементов равную: " + sumMax);
+		System.out.println("Стобец под номером " + numOfColumn + " имеет наибольшую сумму элементов равную: " + sumMax);
 
 	}
 

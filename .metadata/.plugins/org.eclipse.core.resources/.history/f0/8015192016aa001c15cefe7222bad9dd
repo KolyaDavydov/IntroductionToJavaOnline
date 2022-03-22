@@ -31,7 +31,7 @@ public class Task8 {
 			
 		}
 		
-		System.out.println("\nСтобец под номером " + numOfColumn + " имеет наибольшую сумму элементов равную: " + sumMax);
+		System.out.println("n/Стобец под номером " + numOfColumn + " имеет наибольшую сумму элементов равную: " + sumMax);
 
 	}
 

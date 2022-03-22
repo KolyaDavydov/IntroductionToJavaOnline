@@ -26,12 +26,12 @@ public class Task8 {
 			
 			if(summ > sumMax) {
 				sumMax = summ;
-				numOfColumn = j + 1;
+				numOfColumn = j;
 			}
 			
 		}
 		
-		System.out.println("\nСтобец под номером " + numOfColumn + " имеет наибольшую сумму элементов равную: " + sumMax);
+		System.out.println("Стобец под номером " + numOfColumn + " имеет наибольшую сумму элементов равную: " + sumMax);
 
 	}
 
