@@ -2,7 +2,7 @@ package algorithmization_2.arraysOfArrays;
 
 import java.util.Arrays;
 
-public class Task9 {
+public class Task8 {
 
 	public static void main(String[] args) {
 		int n = 6;
