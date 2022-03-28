@@ -1,8 +1,0 @@
-package basics_1.branches;
-
-public class Task2 {
-	public static void main(String[] args) {
-		int a = 34, b = 67, c = 78, d = -198;
-		System.out.println(Math.max(Math.min(a, b), Math.min(c, d)));
-	}
-}
