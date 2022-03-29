@@ -1,4 +1,4 @@
-INDEX VERSION 1.131+C:\Users\user\Desktop\IntroductionToJavaOnline\.metadata\.plugins\org.eclipse.jdt.core
+INDEX VERSION 1.131+C:\Users\User\Desktop\IntroductionToJavaOnline\.metadata\.plugins\org.eclipse.jdt.core
 1865797976.index
 2781058479.index
 760091825.index

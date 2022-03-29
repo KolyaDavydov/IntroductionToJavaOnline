@@ -5,16 +5,13 @@ import java.util.Arrays;
 public class Task16 {
 
 	public static void main(String[] args) {
-		int order = 1;
+		int order = 5;
 		int[][] matrix = new int[order][order];
 		if (order % 2 == 1) {
 			matrix = squareOddOrder(order);
 		} //для матриц с нечетным порядком с использованием сиамского метода заполнения.
 		else if (order / 2 % 2 == 1) {
-			matrix = squareEvenOddOrder(order);
-		}
-		else {
-			matrix = squereEvenOrder(order);
+			matrix = squareOfEvenOddOrder(order);
 		}
 		
 		System.out.println("Matrix looks like:");
@@ -85,7 +82,7 @@ public class Task16 {
 	}
 	
 	
-	private static int[][] squareEvenOddOrder(int n) {
+	private static int[][] squareOfEvenOddOrder(int n) {
         // Метод "анонима" спасибо человеку, который его придумал
         // Вот ссылка на подробное описание метода http://www.klassikpoez.narod.ru/mojmetod.htm
         // Оставлю этот код без комментариев уж очень он большой
@@ -158,46 +155,7 @@ public class Task16 {
         return matrix;
     }
 	
-	private static int[][] squereEvenOrder(int n){
-        // Метод Раус-Болла хорошое описание нашел тут:
-        // https://rep.bntu.by/bitstream/handle/data/62327/Magicheskie_kvadraty.pdf?sequence=1&isAllowed=y
-        // Страница 8, 9
-        int counter = 1;
-		int[][] matrix = new int[n][n];
-        for(int i = 0; i < n; i++) {
-        	for(int j = 0; j < n; j++) {
-        		matrix[i][j] = counter;
-        		counter++;
-        	}
-        }
-        int[][] tempMatrix = new int[n][n];
-        for(int i = 0; i < n; i++) {
-        	for(int j = 0; j < n; j++) {
-        		tempMatrix[i][j] = counter;
-        		counter--;
-        	}
-        }
-
-        int size = 4;    // Размерность каждого квадрата (4х4 тафтология)
-                         // можно заменить простой цифрой
-        int x = 0;       // x, y - движение по кадратам (посмотрите как изменяются в ходе программы)
-        int y = 0;
-        for (int i = 0; i < (n*n/16); i++) {                // Смотрим сколько квадратов 4х4 помещается в матрице nxn
-            if (x == (int)Math.sqrt(n*n/16)) {              // x, y переменные для движения по квадратам 4х4
-                                                            // х проходит по первому ряду квадратов, достигая последнего
-                                                            // обнуляется, а y увеличивается
-                x = 0;
-                y++;
-            }
-            // x и y должны лишь обеспечивать проход по квадратам
-            for (int j = 0; j < 4; j++) {
-                matrix[size*y+j][size*x+j] = tempMatrix[size*y+j][size*x+j];  // главная диагональ квадратов 4х4
-                matrix[size*y+j][size*x+size-1-j] = tempMatrix[size*y+j][size*x+size-1-j]; // побочная диагональ
-            }
-            x++;
-        }
-        return matrix;
-    }
+	
 	
 	
 

@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class Task16 {
 
 	public static void main(String[] args) {
-		int order = 1;
+		int order = 3;
 		int[][] matrix = new int[order][order];
 		if (order % 2 == 1) {
 			matrix = squareOddOrder(order);
