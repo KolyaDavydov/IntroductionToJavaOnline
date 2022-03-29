@@ -16,14 +16,6 @@ public class Task16 {
 	    for(int i = 0; i < matrix.length; i++) {
 			System.out.println(Arrays.toString(matrix[i]));
 	    }
-	    System.out.print("\nSum of column elements:");
-	    for(int j = 0; j < order; j++) {
-	    	int sum = 0;
-	    	for(int i = 0; i < order; i++) {
-	    		sum = sum + matrix[i][j];
-	    	}
-	    	System.out.print(sum + ", ");
-	    }
 
 	}
 	public static int[][] squareOddOrder (int order) {
@@ -36,7 +28,7 @@ public class Task16 {
             matrix[y][x] = count;
 
             count++;
-            if (((y == 0) && (x >= order - 1)) && (matrix[order - 1][0] != 0)){
+            if (((y == 0) && (x >= order-1)) && (matrix[order - 1][0] != 0)){
                 y++;
             }
             else {
@@ -59,10 +51,7 @@ public class Task16 {
             }
         }
 		return matrix;
+		
 	}
-	
-	
-	
-	
 
 }
