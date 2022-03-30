@@ -166,7 +166,7 @@ public class Task16 {
         		counter++;
         	}
         }
-        counter--;
+        counter = 64;
         int[][] tempMatrix = new int[order][order];
         for(int i = 0; i < order; i++) {
         	for(int j = 0; j < order; j++) {

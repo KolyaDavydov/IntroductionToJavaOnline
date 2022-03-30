@@ -21,8 +21,7 @@ N*N*2 для правого нижнего; N*N*3 для правого верх
 во втором столбце меняем у левых квадратов друг с другом все элементы кроме крайних.
 
  3)Для матриц четно-четного порядка, порядок которых делиться на четыре (4, 8, 12, 16 и т.д.)
-Стрятся два массива порядка N, один массив заполняется от 1 до N*N, другой от N*N до 1.
-Затем оба массива разделяются на квадраты с порядком 4, и диагонали каждого из малого квадрата меняются с диагоналями других аналагичных квадратов двух больших массивов.
+ 
  */
 
 import java.util.Arrays;
@@ -30,7 +29,7 @@ import java.util.Arrays;
 public class Task16 {
 
 	public static void main(String[] args) {
-		int order = 16;
+		int order = 4;
 		int[][] matrix = new int[order][order];
 		if (order % 2 == 1) {
 			matrix = squareOddOrder(order);
@@ -47,7 +46,7 @@ public class Task16 {
 	}
 	
 	
-
+	// для матриц нечетного порядка. Использование сиамского метода.
 	public static int[][] squareOddOrder (int order) {
 		int matrix[][] = new int[order][order];
 		
@@ -84,11 +83,14 @@ public class Task16 {
 	}
 	
 	
-	private static int[][] squareEvenOddOrder(int order) {
+	private static int[][] squareEvenOddOrder(int n) {
+        // Метод "анонима" спасибо человеку, который его придумал
+        // Вот ссылка на подробное описание метода http://www.klassikpoez.narod.ru/mojmetod.htm
+        // Оставлю этот код без комментариев уж очень он большой
+        // Надеюсь прочитав описание метода сможете понять(или нет?)
+        int half = n/2;
 
-        int half = order/2;
-
-        int[][] matrix = new int[order][order];
+        int[][] matrix = new int[n][n];
         int[][] tempMatrix;
         tempMatrix = squareOddOrder(half);
 
@@ -100,13 +102,13 @@ public class Task16 {
         }
         // 2/4 матрицы
         for (int i = 0; i < half; i++) {
-            for (int j = half; j < order; j++) {
+            for (int j = half; j < n; j++) {
                 int x = j-half;
                 matrix[i][j] = (tempMatrix[i][x]+2*half*half);
             }
         }
         // 3/4 матрицы
-        for (int i = half; i < order; i++) {
+        for (int i = half; i < n; i++) {
             for (int j = 0; j < half; j++) {
                 int x = i-half;
 
@@ -114,17 +116,17 @@ public class Task16 {
             }
         }
         // 4/4 матрицы
-        for (int i = half; i < order; i++) {
-            for (int j = half; j < order; j++) {
-                int x = i - half, y = j - half;
-                matrix[i][j] = (tempMatrix[x][y] + half * half);
+        for (int i = half; i < n; i++) {
+            for (int j = half; j < n; j++) {
+                int x = i-half, y = j-half;
+                matrix[i][j] = (tempMatrix[x][y]+half*half);
             }
         }
         int move = 0;
-        for (int i = 6; i < order; i++) {
-            if((i %4 != 0) && ( i % 2 == 0)) move++;
+        for (int i = 6; i < n; i++) {
+            if((i%4!=0)&&(i%2==0)) move++;
         }
-        for (int j = matrix.length / 2 - move; j <= matrix.length / 2 + move - 1; j++) {
+        for (int j = matrix.length/2-move; j <= matrix.length/2+move-1; j++) {
             for (int i = 0; i < tempMatrix.length; i++) {
 
                 int key = matrix[i][j];
@@ -140,53 +142,56 @@ public class Task16 {
             }
             if (j == 1) {
                 int key = matrix[half - 1][0];
-                matrix[half - 1][0] = matrix[order - 1][0];
-                matrix[order - 1][0] = key;
+                matrix[half - 1][0] = matrix[n - 1][0];
+                matrix[n - 1][0] = key;
             }
         }
-        for (int j = half + 1; j < order - 1; j++) {
-            for (int i = 1; i < half - 1; i++) {
+        for (int j = half+1; j < n-1; j++) {
+            for (int i = 1; i < half-1; i++) {
                 int key = matrix[i][1];
-                matrix[i][1] = matrix[half + i][1];
-                matrix[half + i][1] = key;
+                matrix[i][1] = matrix[half+i][1];
+                matrix[half+i][1] = key;
             }
         }
         return matrix;
     }
 	
-	
-	
-	private static int[][] squereEvenOrder(int order){
-        
+	private static int[][] squereEvenOrder(int n){
+        // Метод Раус-Болла хорошое описание нашел тут:
+        // https://rep.bntu.by/bitstream/handle/data/62327/Magicheskie_kvadraty.pdf?sequence=1&isAllowed=y
+        // Страница 8, 9
         int counter = 1;
-		int[][] matrix = new int[order][order];
-        for(int i = 0; i < order; i++) {
-        	for(int j = 0; j < order; j++) {
+		int[][] matrix = new int[n][n];
+        for(int i = 0; i < n; i++) {
+        	for(int j = 0; j < n; j++) {
         		matrix[i][j] = counter;
         		counter++;
         	}
         }
-        counter--;
-        int[][] tempMatrix = new int[order][order];
-        for(int i = 0; i < order; i++) {
-        	for(int j = 0; j < order; j++) {
+        int[][] tempMatrix = new int[n][n];
+        for(int i = 0; i < n; i++) {
+        	for(int j = 0; j < n; j++) {
         		tempMatrix[i][j] = counter;
         		counter--;
         	}
         }
 
-        int size = 4;    
-        int x = 0;       
+        int size = 4;    // Размерность каждого квадрата (4х4 тафтология)
+                         // можно заменить простой цифрой
+        int x = 0;       // x, y - движение по кадратам (посмотрите как изменяются в ходе программы)
         int y = 0;
-        for (int i = 0; i < (order * order / 16); i++) {         
-            if (x == (int)Math.sqrt(order * order / 16)) {              
+        for (int i = 0; i < (n*n/16); i++) {                // Смотрим сколько квадратов 4х4 помещается в матрице nxn
+            if (x == (int)Math.sqrt(n*n/16)) {              // x, y переменные для движения по квадратам 4х4
+                                                            // х проходит по первому ряду квадратов, достигая последнего
+                                                            // обнуляется, а y увеличивается
                 x = 0;
                 y++;
             }
-            
+            // x и y должны лишь обеспечивать проход по квадратам
             for (int j = 0; j < 4; j++) {
-                matrix[size * y + j][size * x + j] = tempMatrix[size * y + j][size * x + j];  // главная диагональ квадратов 4х4
-                matrix[size * y + j][size * x + size - 1 - j] = tempMatrix[size * y + j][size * x + size - 1 - j]; // побочная диагональ
+                matrix[size*y+j][size*x+j] = tempMatrix[size*y+j][size*x+j];  // главная диагональ квадратов 4х4
+                matrix[size*y+j][size*x+size-1-j] = tempMatrix[size*y+j][size*x+size-1-j]; // побочная диагональ
+               // matrix[size*y+size-1-j][size*x+j] = tempMatrix[size*y+size-1-j][size*x+j];
             }
             x++;
         }
