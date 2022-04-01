@@ -6,7 +6,11 @@ public class Task1 {
 
 	public static void main(String[] args) {
 		
+<<<<<<< HEAD
 		int lengthArray_1 = 7;
+=======
+		int lengthArray_1 = 8;
+>>>>>>> 3baa93935564b076039b95e88f459912f131e9a8
 		int lengthArray_2 = 4;
 		int k = 4;
 		
@@ -22,10 +26,13 @@ public class Task1 {
 			array_2[i] = (int) (Math.random() * 20);
 		}
 		System.out.println("\nSecond array:\n" + Arrays.toString(array_2));
+<<<<<<< HEAD
 		
 		
 		
 		System.out.println("\nSummary array:\n" + Arrays.toString(concatanateArrays(array_1, array_2, k)));
+=======
+>>>>>>> 3baa93935564b076039b95e88f459912f131e9a8
 
 	}
 
