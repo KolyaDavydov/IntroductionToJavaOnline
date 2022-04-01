@@ -6,7 +6,7 @@ public class Task1 {
 
 	public static void main(String[] args) {
 		
-		int lengthArray_1 = 7;
+		int lengthArray_1 = 8;
 		int lengthArray_2 = 4;
 		int k = 4;
 		
