@@ -7,7 +7,11 @@ public class Task1 {
 	public static void main(String[] args) {
 		
 <<<<<<< HEAD
+<<<<<<< HEAD
 		int lengthArray_1 = 7;
+=======
+		int lengthArray_1 = 8;
+>>>>>>> 3baa93935564b076039b95e88f459912f131e9a8
 =======
 		int lengthArray_1 = 8;
 >>>>>>> 3baa93935564b076039b95e88f459912f131e9a8
@@ -27,10 +31,13 @@ public class Task1 {
 		}
 		System.out.println("\nSecond array:\n" + Arrays.toString(array_2));
 <<<<<<< HEAD
+<<<<<<< HEAD
 		
 		
 		
 		System.out.println("\nSummary array:\n" + Arrays.toString(concatanateArrays(array_1, array_2, k)));
+=======
+>>>>>>> 3baa93935564b076039b95e88f459912f131e9a8
 =======
 >>>>>>> 3baa93935564b076039b95e88f459912f131e9a8
 
